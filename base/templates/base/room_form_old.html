@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Submit" />
+    </form>
+    <!--  
+        NOTE:
+        here in the form, method is POST, as we're sending data.
+        action = '', if we specify any url here, it'll send the data to that specific url.
+        Inside every form in django, we need to add that  {% csrf_token %} --- because, 
+        this will be sent on every form submit, and this will check for the malicious attempts. Thus
+        helping us from hackers.
+    -->
+</div>
+
+
+{% endblock content %}
